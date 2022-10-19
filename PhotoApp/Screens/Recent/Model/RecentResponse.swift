@@ -43,6 +43,19 @@ struct Photos: Codable {
 struct Photo: Codable {
     let id, owner, secret, server, title: String
     let ispublic, isfriend, isfamily: Int
+    let ownerName: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case owner
+        case secret
+        case server
+        case title
+        case ispublic
+        case isfriend
+        case isfamily
+        case ownerName = "ownername"
+    }
     
     var imagePath: String {
         return "https://live.staticflickr.com/\(server)/\(id)_\(secret)_w.jpg"
@@ -50,5 +63,9 @@ struct Photo: Codable {
     
     var imagePathLarge: String {
         return "https://live.staticflickr.com/\(server)/\(id)_\(secret)_b.jpg"
+    }
+    
+    var identifier: String {
+        return "\(server)/\(id)_\(secret)"
     }
 }

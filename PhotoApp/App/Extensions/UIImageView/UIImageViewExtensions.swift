@@ -32,9 +32,9 @@ extension UIImageView{
     
     func animateImage() {
         UIView.animate(withDuration: 0.1, animations: {
-            let newImage = isFavourited ? UIImage(named: "bookmark.fill"): UIImage(named: "bookmark")
+            //let newImage = isFavourited ? UIImage(named: "bookmark.fill"): UIImage(named: "bookmark")
             self.transform = self.transform.scaledBy(x: 1.3, y: 1.3)
-            self.image = newImage
+            //self.image = newImage
         }, completion: { _ in
             UIView.animate(withDuration: 0.1, animations: {
                 self.transform = CGAffineTransform.identity

@@ -50,6 +50,7 @@ extension UIColor {
     static var greenButtonAlpha: UIColor { UIColor(colorName: "greenButtonAlpha") }
     static var redButton: UIColor { UIColor(colorName: "redButton") }
     static var redButtonAlpha: UIColor { UIColor(colorName: "redButtonAlpha") }
+    static var shadow: UIColor { UIColor(colorName: "shadow") }
 }
 
 public extension UIColor {

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Toast
 
 final class AuthViewController: UIViewController {
     
@@ -28,21 +28,32 @@ final class AuthViewController: UIViewController {
     
     var authType: AuthType = .signIn {
         didSet {
-            titleLabel.text = title
-            confirmButton.setTitle(title, for: .normal)
+            titleLabel.text = authType.rawValue
+            confirmButton.setTitle(authType.rawValue, for: .normal)
+            usernameTextField.isHidden = authType != .signUp // should be hidden in signIn
         }
     }
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var credentionTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    private let viewModel = AuthViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Auth"
+        //title = "Auth"
+        viewModel.delegate = self
+        
+        self.showLoadingIndicator()
+        viewModel.fetchRemoteConfig { isSignUpDisabled in
+            self.segmentedControl.isHidden = isSignUpDisabled
+            self.dismissLoadingIndicator()
+        }
     }
     
     @IBAction private func didTapLoginButton(_ sender: UIButton) {
@@ -52,31 +63,35 @@ final class AuthViewController: UIViewController {
         }
         switch authType {
         case .signIn:
-            Auth.auth().signIn(withEmail: credential, password: password) { [weak self] authResult, error in
-                guard let strongSelf = self else { return }
-                if let error = error {
-                    print(error.localizedDescription)
-                    return
-                }
-                if let recentViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as? UITabBarController{
-                    recentViewController.modalPresentationStyle = .fullScreen
-                    self?.present(recentViewController, animated: true)
-                }
-                //print(authResult)
-            }
+            viewModel.signIn(credential, password)
         case .signUp:
-            Auth.auth().createUser(withEmail: credential, password: password) { authResult, error in
-                if let error = error {
-                    print(error.localizedDescription)
-                    return
-                }
-                //print(authResult)
-            }
+            guard let username = usernameTextField.text else {return}
+            viewModel.signUp(credential, password, username: username)
         }
     }
     
     @IBAction private func didValueChangedSegmentedControl(_ sender: UISegmentedControl) {
-        let title = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)
-        authType = AuthType(text: title ?? "Sign In")
+        let authTitle = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex)
+        authType = AuthType(text: authTitle ?? "Sign In")
     }
+}
+
+extension AuthViewController: AuthDelegate {
+    func didErrorOccurred(_ error: Error) {
+        AlertManager.showInfoAlertBox(for: error as NSError, in: self, handler: nil)
+    }
+    
+    func didSignedUp() {
+        self.view.makeToast("Signed up Successfully...", duration: 3.0, position: .bottom)
+        //AlertManager.showInfoAlertBox(with: "Signed up Successfully...", errorTitle: "Success", in: self, handler: nil)
+    }
+    
+    func didSignedIn() {
+        if let recentViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as? UITabBarController{
+            recentViewController.modalPresentationStyle = .fullScreen
+            self.present(recentViewController, animated: true)
+        }
+    }
+    
+    
 }

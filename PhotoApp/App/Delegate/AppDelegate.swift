@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import FirebaseCore
+import FirebaseFirestore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,19 +17,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        setupFirebase()
         setupWindow()
-        FirebaseApp.configure()
-        
+    
         return true
     }
     
     private func setupWindow() {
         let window = UIWindow(frame: UIScreen.main.bounds)
         let viewController = AuthViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        window.rootViewController = navigationController
+        //let navigationController = UINavigationController(rootViewController: viewController)
+        window.rootViewController = viewController //navigationController
         window.makeKeyAndVisible()
         self.window = window
     }
+    
+    private func setupFirebase() {
+        FirebaseApp.configure()
+        _ = Firestore.firestore()
+    }
+
 }
 

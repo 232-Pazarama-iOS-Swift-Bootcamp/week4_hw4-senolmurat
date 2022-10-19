@@ -10,9 +10,12 @@ import Moya
 let plugin: PluginType = NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))
 let provider = MoyaProvider<FlickrAPI>(plugins: [plugin])
 
+private var apiKey: String = "76deea5896053253686dab192da50462"
+
 enum FlickrAPI {
-    case recent(method: String = "flickr.photos.getRecent", api_key: String = "55f3f75e00ac276da38071522de9c95a", per_page: String, page: String, format: String = "json", nojsoncallback: String = "1")
-    case search(method: String = "flickr.photos.search", api_key: String = "55f3f75e00ac276da38071522de9c95a",text: String ,per_page: String, page: String, format: String = "json", nojsoncallback: String = "1")
+    case recent(method: String = "flickr.photos.getRecent", api_key: String = apiKey, per_page: String, page: String, extras: [String] = ["owner_name"], format: String = "json", nojsoncallback: String = "1")
+    case popular(method: String = "flickr.galleries.getPhotos", api_key: String = apiKey,galleryId: String = "72157720420683050", per_page: String, page: String, format: String = "json", nojsoncallback: String = "1")
+    case search(method: String = "flickr.photos.search", api_key: String = apiKey,text: String ,per_page: String, page: String, format: String = "json", nojsoncallback: String = "1")
 }
 
 // MARK: - TargetType
@@ -37,9 +40,22 @@ extension FlickrAPI: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .recent(let method, let api_key, let per_page, let page, let format, let nojsoncallback):
+        case .recent(let method, let api_key, let per_page, let page,let extras, let format, let nojsoncallback):
+            var parameters = ["method" : method,
+                              "api_key" : api_key,
+                              "per_page" : per_page,
+                              "page" : page,
+                              "format" : format,
+                              "nojsoncallback" : nojsoncallback]
+            if !extras.isEmpty {
+                parameters["extras"] = extras.joined(separator: ",")
+            }
+            return .requestParameters(parameters: parameters,
+                                      encoding: URLEncoding.queryString)
+        case .popular(let method, let api_key,let galleryId, let per_page, let page, let format, let nojsoncallback):
             let parameters = ["method" : method,
                               "api_key" : api_key,
+                              "gallery_id" : galleryId,
                               "per_page" : per_page,
                               "page" : page,
                               "format" : format,

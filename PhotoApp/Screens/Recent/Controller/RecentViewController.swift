@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 class RecentViewController: UIViewController {
 
@@ -18,6 +19,8 @@ class RecentViewController: UIViewController {
     }
     
     private var viewModel = RecentViewModel()
+    private var pageCounter: Int = 1
+    private var totalPhotoCount: Int = 0
     private var photoList: [Photo] = [] {
         didSet {
             tableView.reloadData()
@@ -28,46 +31,27 @@ class RecentViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = "Recent"
-        //navigationController?.tabBarItem.title = LocalizedString.movieTabTitle
         navigationController?.tabBarItem.image = UIImage(named: "photo")
-        //navigationController?.tabBarItem.selectedImage = UIImage(named: "house.fill")
-        
         
         viewModel.delegate = self
-        viewModel.fetchRecent(.init(per_page: 50, page: 1))
-        //photoList.append(contentsOf: viewModel.)
+        viewModel.fetchRecent(.init(per_page: 50, page: pageCounter))
     }
     
 }
 
 extension RecentViewController: UITableViewDelegate {
-    /*
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == popularMovieList.count - 1{
-            
-            guard let totalMovieCount = totalPopularMovieCount else {
-                return
-            }
-            
-            //Check if there are anymore characters to load
-            if popularMovieList.count < totalMovieCount{
+        if indexPath.row == photoList.count - 1{
+            //Check if there are anymore photos to load
+            if photoList.count < totalPhotoCount{
                 //Load more content
                 tableView.showTableViewLoadingIndicator()
-                
-                movieService.getPopular(page: popularListPageCounter , language: AppConfig.languageISO) { result in
-                    switch result {
-                    case .success(let response):
-                        self.popularListPageCounter += 1
-                        self.popularMovieList.append(contentsOf: response.results)
-                        self.tableView.reloadData()
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
+                viewModel.fetchRecent(.init(per_page: 50, page: pageCounter))
             }
         }
     }
-     */
+     
     /*
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: MovieDetailViewController.self)) as? MovieDetailViewController{
@@ -97,6 +81,7 @@ extension RecentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let photo = photoList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: RecentViewCell.getDescribingIdentifier(), for: indexPath) as! RecentViewCell
+        cell.delegate = self
         cell.configureCell(with: photo)
         return cell
     }
@@ -104,13 +89,26 @@ extension RecentViewController: UITableViewDataSource {
 
 extension RecentViewController: RecentsDelegate {
     func didErrorOccurred(_ error: Error) {
+        tableView.hideTableViewLoadingIndicator()
         // TODO: show alert
         print("ERROR: \(error)")
     }
     
     func didGetRecent(_ response: RecentPhotos.Response) {
+        tableView.hideTableViewLoadingIndicator()
         photoList.append(contentsOf: response.result.photos)
-        //tableView.reloadData()
+        totalPhotoCount = response.result.total
+        pageCounter += 1
+    }
+}
+
+extension RecentViewController: RecentViewCellDelegate {
+    func didAddFavourites() {
+        self.view.makeToast("Succesfully added to favourites", duration: 3.0, position: .bottom)
+    }
+    
+    func didAddBookmarks() {
+        self.view.makeToast("Succesfully added to bookmarks", duration: 3.0, position: .bottom)
     }
 }
 

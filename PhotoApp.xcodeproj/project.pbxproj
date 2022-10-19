@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2E53B8F5B7D39B89E8D12D79 /* Pods_PhotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0AFFC37D7104A644D1761A /* Pods_PhotoApp.framework */; };
+		D9025F7928FAB1300004D4F1 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9025F7828FAB1300004D4F1 /* AlertManager.swift */; };
+		D9471C0928F85C0700DAED9F /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9471C0828F85C0700DAED9F /* SearchResponse.swift */; };
+		D9471C0B28F85C1200DAED9F /* PopularResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9471C0A28F85C1200DAED9F /* PopularResponse.swift */; };
+		D9471C0D28F8609D00DAED9F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9471C0C28F8609D00DAED9F /* SearchViewModel.swift */; };
+		D9471C1028F8622700DAED9F /* PhotoGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9471C0E28F8622700DAED9F /* PhotoGridCell.swift */; };
+		D9471C1128F8622700DAED9F /* PhotoGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9471C0F28F8622700DAED9F /* PhotoGridCell.xib */; };
 		D977CF6E28F6E77B005AD37E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D977CF6D28F6E77B005AD37E /* FirebaseAuth */; };
 		D977CF7028F6E77B005AD37E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D977CF6F28F6E77B005AD37E /* FirebaseDatabase */; };
 		D977CF7228F6E77B005AD37E /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D977CF7128F6E77B005AD37E /* FirebaseDatabaseSwift */; };
@@ -17,6 +23,11 @@
 		D977CF7A28F6E77B005AD37E /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = D977CF7928F6E77B005AD37E /* FirebaseRemoteConfig */; };
 		D977CF7C28F6E77B005AD37E /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D977CF7B28F6E77B005AD37E /* FirebaseRemoteConfigSwift */; };
 		D977CF7E28F6E77B005AD37E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D977CF7D28F6E77B005AD37E /* FirebaseStorage */; };
+		D9CED71728FC1A7800A25D26 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CED71528FC1A7800A25D26 /* SearchDetailViewController.swift */; };
+		D9CED71828FC1A7800A25D26 /* SearchDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CED71628FC1A7800A25D26 /* SearchDetailViewController.xib */; };
+		D9CED71A28FC2E4400A25D26 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CED71928FC2E4400A25D26 /* FirebaseManager.swift */; };
+		D9CED71D28FC341E00A25D26 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = D9CED71C28FC341E00A25D26 /* Toast */; };
+		D9CED72228FC4A4D00A25D26 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9CED72128FC4A4D00A25D26 /* RemoteConfigDefaults.plist */; };
 		D9E9841228F6E8CF00579322 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E983BC28F6E8CF00579322 /* FlickrAPI.swift */; };
 		D9E9841328F6E8CF00579322 /* CoinStatsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E983BD28F6E8CF00579322 /* CoinStatsAPI.swift */; };
 		D9E9841528F6E8CF00579322 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E983C228F6E8CF00579322 /* AppDelegate.swift */; };
@@ -52,7 +63,17 @@
 		2C7C4CD09B55AF8A97123E30 /* Pods-PhotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.debug.xcconfig"; path = "Target Support Files/Pods-PhotoApp/Pods-PhotoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		2E0AFFC37D7104A644D1761A /* Pods_PhotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1608F3B6C98AD28F14FB5A9 /* Pods-PhotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.release.xcconfig"; path = "Target Support Files/Pods-PhotoApp/Pods-PhotoApp.release.xcconfig"; sourceTree = "<group>"; };
+		D9025F7828FAB1300004D4F1 /* AlertManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		D9471C0828F85C0700DAED9F /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		D9471C0A28F85C1200DAED9F /* PopularResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularResponse.swift; sourceTree = "<group>"; };
+		D9471C0C28F8609D00DAED9F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		D9471C0E28F8622700DAED9F /* PhotoGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridCell.swift; sourceTree = "<group>"; };
+		D9471C0F28F8622700DAED9F /* PhotoGridCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoGridCell.xib; sourceTree = "<group>"; };
 		D977CF5528F6E665005AD37E /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9CED71528FC1A7800A25D26 /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
+		D9CED71628FC1A7800A25D26 /* SearchDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchDetailViewController.xib; path = ../Controller/SearchDetailViewController.xib; sourceTree = "<group>"; };
+		D9CED71928FC2E4400A25D26 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		D9CED72128FC4A4D00A25D26 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		D9E983BC28F6E8CF00579322 /* FlickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
 		D9E983BD28F6E8CF00579322 /* CoinStatsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinStatsAPI.swift; sourceTree = "<group>"; };
 		D9E983C028F6E8CF00579322 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9CED71D28FC341E00A25D26 /* Toast in Frameworks */,
 				D977CF7228F6E77B005AD37E /* FirebaseDatabaseSwift in Frameworks */,
 				D977CF7C28F6E77B005AD37E /* FirebaseRemoteConfigSwift in Frameworks */,
 				D977CF7E28F6E77B005AD37E /* FirebaseStorage in Frameworks */,
@@ -121,6 +143,31 @@
 				2E0AFFC37D7104A644D1761A /* Pods_PhotoApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D910D08128FC197100DBF77E /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D910D08428FC1A2A00DBF77E /* View */,
+				D910D08328FC1A2500DBF77E /* Controller */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		D910D08328FC1A2500DBF77E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9CED71528FC1A7800A25D26 /* SearchDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D910D08428FC1A2A00DBF77E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D9CED71628FC1A7800A25D26 /* SearchDetailViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D977CF4C28F6E665005AD37E = {
@@ -186,6 +233,8 @@
 		D9E983BE28F6E8CF00579322 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D9025F7828FAB1300004D4F1 /* AlertManager.swift */,
+				D9CED71928FC2E4400A25D26 /* FirebaseManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -193,6 +242,7 @@
 		D9E983BF28F6E8CF00579322 /* Plists */ = {
 			isa = PBXGroup;
 			children = (
+				D9CED72128FC4A4D00A25D26 /* RemoteConfigDefaults.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -368,6 +418,7 @@
 		D9E983E628F6E8CF00579322 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				D910D08128FC197100DBF77E /* Detail */,
 				D9E983E728F6E8CF00579322 /* ViewModel */,
 				D9E983E828F6E8CF00579322 /* Controller */,
 				D9E983EA28F6E8CF00579322 /* Model */,
@@ -379,6 +430,7 @@
 		D9E983E728F6E8CF00579322 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D9471C0C28F8609D00DAED9F /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -394,6 +446,8 @@
 		D9E983EA28F6E8CF00579322 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D9471C0828F85C0700DAED9F /* SearchResponse.swift */,
+				D9471C0A28F85C1200DAED9F /* PopularResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -401,6 +455,8 @@
 		D9E983EB28F6E8CF00579322 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D9471C0E28F8622700DAED9F /* PhotoGridCell.swift */,
+				D9471C0F28F8622700DAED9F /* PhotoGridCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -526,6 +582,7 @@
 				D977CF7B28F6E77B005AD37E /* FirebaseRemoteConfigSwift */,
 				D977CF7D28F6E77B005AD37E /* FirebaseStorage */,
 				D9E9843928F6E9BD00579322 /* Kingfisher */,
+				D9CED71C28FC341E00A25D26 /* Toast */,
 			);
 			productName = PhotoApp;
 			productReference = D977CF5528F6E665005AD37E /* PhotoApp.app */;
@@ -558,6 +615,7 @@
 			packageReferences = (
 				D977CF6C28F6E77B005AD37E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D9E9843828F6E9BD00579322 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D9CED71B28FC341E00A25D26 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = D977CF5628F6E665005AD37E /* Products */;
 			projectDirPath = "";
@@ -575,10 +633,13 @@
 			files = (
 				D9E9842128F6E8CF00579322 /* Main.storyboard in Resources */,
 				D9E9843C28F6EAA300579322 /* GoogleService-Info.plist in Resources */,
+				D9471C1128F8622700DAED9F /* PhotoGridCell.xib in Resources */,
 				D9E9842528F6E8CF00579322 /* AuthViewController.xib in Resources */,
 				D9E9842228F6E8CF00579322 /* Assets.xcassets in Resources */,
 				D9E9842028F6E8CF00579322 /* LaunchScreen.storyboard in Resources */,
+				D9CED72228FC4A4D00A25D26 /* RemoteConfigDefaults.plist in Resources */,
 				D9E9843628F6E8CF00579322 /* RecentViewCell.xib in Resources */,
+				D9CED71828FC1A7800A25D26 /* SearchDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +692,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9471C1028F8622700DAED9F /* PhotoGridCell.swift in Sources */,
 				D9E9843428F6E8CF00579322 /* RecentViewController.swift in Sources */,
 				D9E9841A28F6E8CF00579322 /* UICollectionViewExtensions.swift in Sources */,
 				D9E9841D28F6E8CF00579322 /* UIViewControllerExtensions.swift in Sources */,
@@ -638,20 +700,26 @@
 				D9E9841E28F6E8CF00579322 /* UITableViewExtensions.swift in Sources */,
 				D9E9841B28F6E8CF00579322 /* UICollectionViewCellExtensions.swift in Sources */,
 				D9E9841628F6E8CF00579322 /* SpinerViewController.swift in Sources */,
+				D9025F7928FAB1300004D4F1 /* AlertManager.swift in Sources */,
 				D9E9841728F6E8CF00579322 /* UIImageExtensions.swift in Sources */,
 				D9E9842428F6E8CF00579322 /* AuthViewController.swift in Sources */,
 				D9E9841228F6E8CF00579322 /* FlickrAPI.swift in Sources */,
+				D9471C0B28F85C1200DAED9F /* PopularResponse.swift in Sources */,
 				D9E9841928F6E8CF00579322 /* UIColor+Extensions.swift in Sources */,
+				D9CED71728FC1A7800A25D26 /* SearchDetailViewController.swift in Sources */,
 				D9E9842628F6E8CF00579322 /* SearchViewController.swift in Sources */,
 				D9E9843328F6E8CF00579322 /* RecentViewModel.swift in Sources */,
 				D9E9841328F6E8CF00579322 /* CoinStatsAPI.swift in Sources */,
 				D9E9844028F6FABC00579322 /* UIApplication.swift in Sources */,
+				D9CED71A28FC2E4400A25D26 /* FirebaseManager.swift in Sources */,
 				D9E9842328F6E8CF00579322 /* AuthViewModel.swift in Sources */,
 				D9E9841C28F6E8CF00579322 /* UIImageViewExtensions.swift in Sources */,
 				D9E9841F28F6E8CF00579322 /* StringExtensions.swift in Sources */,
 				D9E9842B28F6E8CF00579322 /* ProfileViewController.swift in Sources */,
 				D9E9843528F6E8CF00579322 /* RecentResponse.swift in Sources */,
+				D9471C0D28F8609D00DAED9F /* SearchViewModel.swift in Sources */,
 				D9E9843728F6E8CF00579322 /* RecentViewCell.swift in Sources */,
+				D9471C0928F85C0700DAED9F /* SearchResponse.swift in Sources */,
 				D9E9841828F6E8CF00579322 /* UITableViewCellExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -798,7 +866,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -826,7 +894,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -870,6 +938,14 @@
 			requirement = {
 				branch = master;
 				kind = branch;
+			};
+		};
+		D9CED71B28FC341E00A25D26 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 		D9E9843828F6E9BD00579322 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
@@ -927,6 +1003,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D977CF6C28F6E77B005AD37E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		D9CED71C28FC341E00A25D26 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9CED71B28FC341E00A25D26 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 		D9E9843928F6E9BD00579322 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
